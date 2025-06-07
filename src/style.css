@@ -1,0 +1,952 @@
+/* =================================== */
+/* Basic Reset & Foundational Styles   */
+/* =================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Makes managing element sizes more intuitive */
+}
+
+html {
+    font-size: 100%; /* Establishes a base for rem units if you use them */
+    scroll-behavior: smooth; /* For smooth scrolling when clicking nav links */
+}
+
+body {
+    font-family: Arial, sans-serif; /* Your chosen default sans-serif font stack */
+    line-height: 1.6;
+    color: #333; /* Default text color */
+    /*background-color: #ffffff; /* A light gray background for the page, if desired */
+    margin: 0;
+}
+
+.page-has-wide-backdrop {
+    /*background-image: url('/images/rattan.jpg'); /* Replace with your image */
+    background-size: repeat;    /* Or 'repeat' if it's a tileable pattern */
+    background-attachment: fixed; /* Optional: creates a parallax effect as you scroll content */
+    background-position: center;
+}
+
+.site-content-wrapper {
+    max-width: 1100px; /* Or your chosen max content width */
+    margin: 0 auto;    /* Centers this wrapper on the page */
+    background-color: #FFFFFF; /* Example: a white background for the content column itself */
+                               /* This becomes the "actual background of the site" content area */
+    box-shadow: 0 0 15px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow to lift it off the backdrop */
+}
+
+img {
+    max-width: 100%; /* Ensures images scale down and don't overflow containers */
+   /* height: auto;    /* Maintains aspect ratio */
+    display: block;  /* Often good for images to prevent extra space below them */
+}
+
+a {
+    color: #337ab7; /* A standard blue for links, customize as needed */
+    text-decoration: none; /* Remove underlines from links by default */
+}
+
+a:hover {
+    text-decoration: underline; /* Add underline on hover for links */
+}
+
+/* General Typography (can be expanded) */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.75em; /* Some default spacing below headings */
+    line-height: 1.2;     /* Common line-height for headings */
+}
+
+.container {
+    max-width: 1100px;  /* Or 1200px, 1280px, etc. - your choice for content width */
+    margin-left: auto;  /* Centers the container */
+    margin-right: auto; /* Centers the container */
+    padding-left: 20px; /* Adds some space on the sides, especially for smaller screens */
+    padding-right: 20px;/* before max-width kicks in, or inside the max-width */
+}
+
+.container-narrow {
+    max-width: 800px; /* A narrower max-width, adjust this value as you see fit! */
+}
+
+/* =================================== */
+/* Header and Navigation Styles        */
+/* =================================== */
+
+header {
+    background-color: #333; /* Fallback background color */
+    /*background-image: url('/images/natural-wooden-background.jpg'); /* Ensure this path is correct for Vite */
+    /* If images are in public/images, '/images/...' is correct */
+    /* If images are in src/assets/images, path might be relative like '../images/...' or need JS import */
+    background-size: cover; /* Assuming you want it to cover */
+    background-position: center;
+    
+    color: #fff; 
+    /* padding: 0; You had this, but header nav has padding. Header might need its own if nav doesn't fill it. */
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    /* display: block; -- This is redundant, <header> is block by default */
+}
+
+header nav {
+    max-width: 1100px;
+    width: 100%; 
+    margin: 0 auto;    
+    display: flex;
+    justify-content: left; 
+    align-items: center;
+    padding: 15px 20px; /* Added some top/bottom padding to nav, adjust as needed */
+                       /* Your header had padding: 0, so nav might need its own vertical padding */
+}
+
+header .logo h1 {
+    font-family: 'Milonga', cursive; /* Make sure Milonga is linked from Google Fonts */
+    font-size: 3em; /* Adjust as needed */
+    line-height: 1; /* Added for better control with the tagline */
+    margin: 0; 
+    color: #eeedec;
+    /*text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3), -1px -1px 1px rgba(0, 0, 0, 0.6);
+    /* margin-bottom: .5em; -- This might create too much space if tagline is close */
+}
+
+header .logo h1 .logo-tagline {
+    font-family: 'Quintessential', cursive; /* Make sure Quintessential is linked */
+    color: #eeedec; 
+    display: block;
+    font-size: 0.35em; /* Relative to h1's font size */
+    font-weight: normal; /* Changed from lighter, see what looks best */
+    line-height: 1;    /* Adjust for closeness */
+    margin-top: -5px;  /* Pull it up slightly; adjust this value carefully */
+    margin-left: 35px; /* This might make it look off-center if the main h1 text is centered */
+    /* If you want the tagline centered under "Dorrington", remove margin-left and ensure parent h1 has text-align: center */
+    letter-spacing: 0.05em; /* Optional */
+}
+
+/* Your ul#top-banner and other styles would follow */
+header nav ul {
+    list-style: none; /* Remove default bullet points from the list */
+    display: flex;
+    margin-left: 4em;
+    padding: 0;
+    justify-content: space-around;
+    flex-grow: 1;
+}
+
+header nav ul li {
+    white-space: nowrap;
+    
+    font-size: 1.1em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; /* Ensure this font is linked from Google Fonts */
+}
+
+header nav ul li a {
+    color: #eeedec; /* White color for nav links */
+    font-weight: bold;
+    padding-bottom: 0em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+header nav ul li a:hover,
+header nav ul li a.active { /* We can add 'active' class with JavaScript later for current section */
+    background-color: #555; /* Darker background on hover/active */
+    text-decoration: none;
+}
+
+header nav ul li a.nav-cta-button {
+    background-color: #4CAF50; /* A standard bright green - CHOOSE YOUR SHADE! */
+    color: white;              /* White text for contrast on green */
+    padding: 10px 20px;        /* More prominent padding than regular nav links */
+    border-radius: 5px;        /* Or your preferred border-radius */
+    text-decoration: none;     /* Ensure no underline */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+    margin-left: 10px; /* Optional: if you want a bit more space before it if it's last */
+}
+
+header nav ul li a.nav-cta-button:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+    color: white;              /* Ensure text color remains white or adjust if needed */
+    text-decoration: none;     /* Ensure no underline on hover */
+    transform: translateY(-1px); /* Subtle lift effect */
+}
+
+header nav ul li a.nav-cta-button:active {
+    background-color: #3e8e41; /* Even darker green when clicked */
+    transform: translateY(0px);
+}
+
+.hamburger-menu {
+    display: none; /* Hide the hamburger on wide screens */
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 10px;
+}
+
+.hamburger-menu .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #FFFFFF; /* White bars to show up on your dark header */
+    transition: all 0.3s ease-in-out;
+}
+
+#top-banner .flag {
+    height: 1.7em;
+    width: 2.7em;
+    margin-left: 0.3em;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+
+#top-banner {
+    display: flex; /* Arrange list items (text, flag) horizontally */
+    align-items: center; /* Vertically align items in the middle */
+    justify-content: flex-end; /* Center the group of items within the banner */
+    list-style: none;
+    max-width: 1100px;  /* Same max-width as your main nav */
+    width: 100%;        /* Takes full width up to max-width */
+    margin: 0 auto;     /* Centers the banner itself */
+    
+    background-color: #4a4a4a; /* Example: A slightly different dark gray, or your wood texture */
+    /* If using the same wood texture as the main header: */
+    /* background-image: url('natural-wooden-background.jpg'); */
+    /* background-size: cover; */
+    /* background-position: center bottom; /* Adjust position if needed */
+    
+    color: #f0f0f0; /* Lighter text color for contrast */
+    padding: 0; /* Adjust padding: top/bottom and left/right */
+    font-size: 0.7em; /* Slightly smaller font size */
+    
+    position: sticky;
+    top: 80px; /* IMPORTANT: This pushes it down below a 60px tall nav bar. Adjust this value! */
+    left: 0;
+    z-index: 999; /* Slightly less than main nav if they might overlap, or same if header has one z-index */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15); /* Optional: a softer shadow than main nav */
+}
+
+#top-banner li {
+    margin: 0 0 0 10px; /* Example: Only left margin when items are right-aligned */
+    padding: 0; /* You mentioned you set this, which is fine */
+}
+
+#image-showcase {
+    /* Optional: if you want some padding around the carousel section */
+    /* padding: 20px 0; */
+}
+
+.my-hero-swiper {
+    width: 100%;
+    aspect-ratio: 4.5 / 3;
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff; /* Fallback background for slides */
+
+    /* Center slide content (the image) */          
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Or 'contain' depending on how you want images to fit */
+}
+
+/* Customizing Swiper Arrows & Pagination (Optional) */
+/* Refer to SwiperJS docs for class names and styling options */
+.swiper-button-next, .swiper-button-prev {
+    color: #FFFFFF; /* Example: white arrows */
+}
+.swiper-pagination-bullet-active {
+    background: #FFFFFF; /* Example: white active dot */
+}
+
+#vision {
+    background-color: #FFFFFF; /* Or your primary light background color */
+    padding: 150px 0; /* Generous vertical padding creates whitespace and makes it feel important */
+    text-align: center; /* Center the content within the section */
+}
+
+/* Style for the vision statement text */
+.vision-text {
+    font-family: 'Playfair Display', serif; /* A nice, elegant serif font often works well here */
+    font-size: 1.8em; /* Make it impactful but readable */
+    font-style: italic; /* Optional, can look nice for statements */
+    line-height: 1.6;
+    max-width: 800px; /* Constrain the line length for readability */
+    margin: 0 auto; /* Center the text block itself */
+    color: #444; /* A soft, dark gray */
+}
+
+.section-divider {
+    display: flex;
+    align-items: center; /* Vertically aligns the lines and the logo text */
+    text-align: center;
+    margin: 40px 0; /* Adjust vertical spacing around the divider */
+    /* You might want to put this inside a .container if you want it constrained,
+       or leave it full-width with lines extending to edges of .site-content-wrapper */
+}
+
+.divider-line {
+    flex-grow: 1; /* Allows the lines to take up available space */
+    height: 1px;  /* Makes the line very fine */
+    background-color: #CCCCCC; /* Light gray for the line, adjust as needed */
+    /* Or a darker color if your section background is very light, e.g., #333 */
+}
+
+.divider-logo-image {
+    width: 100px; /* Adjust based on your logo size */
+    height: auto; /* Maintains aspect ratio */
+    margin: 0 20px; /* Space between the lines and the logo */
+}
+
+body {
+    font-family: Arial, sans-serif; /* A common, readable sans-serif font stack */
+    line-height: 1.6;
+    color: #333; /* Default text color - a dark gray */
+    /*background-color: #f4f4f4; /* A light gray background for the page */
+}
+
+/* In your style.css file */
+#process {
+    scroll-margin-top: 114px;
+    padding: 60px 0; /* Vertical padding for the section */
+    background-color: #f9f9f9; /* Optional: a slightly different background to distinguish it */
+}
+
+.two-column-layout {
+    display: flex;
+    flex-direction: row; /* Default, but good to be explicit: side-by-side */
+    align-items: center; /* Aligns items to the top. Use 'center' if you want them vertically centered. */
+    gap: 30px; /* Creates a 30px space between the image column and text column */
+}
+
+.two-column-layout.layout-reversed {
+    flex-direction: row-reverse; /* This flips the visual order of .image-column and .text-column */
+}
+
+.workspace-image {
+    width: 100px; /* Ensures the image fills its column */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Removes extra space below the image */
+    border-radius: 8px; /* Optional: adds nice rounded corners to the image */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: subtle shadow */
+}
+
+.column { /* Common styling for both columns, if any (not much needed here) */
+}
+
+.image-column {
+    flex: 1 1 45%; /* Flex-grow: 1, Flex-shrink: 1, Flex-basis: 45% 
+                      This means it tries to be 45% of the width, but can grow/shrink.
+                      You can also use: flex: 0 0 45%; if you want it to be more fixed at 45%
+                      Or just: width: 45%; (Flexbox will still manage it) */
+    /* max-width: 45%; */ /* Another way to control width */
+}
+
+.image-column img {
+    width: 100%; /* Makes the image fill the width of its column */
+    height: auto;  /* Maintains aspect ratio */
+    display: block; /* Removes extra space below the image */
+    border-radius: 8px; /* Optional: adds nice rounded corners to the image */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: subtle shadow */
+    
+}
+
+.text-column {
+    flex: 1 1 55%; /* Tries to be 55% of the width, adjust percentages as needed */
+    /* max-width: 55%; */
+}
+
+.text-column h2 {
+    margin-top: 0; /* Good practice if align-items on parent is 'flex-start' or 'stretch' */
+    font-size: 2.2em; /* Adjust as needed */
+    color: #333; /* Or your primary heading color */
+    margin-bottom: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; /* Custom font for headings */
+}
+
+.text-column p {
+    font-size: 1em; /* Or 1.1em for slightly larger body text */
+    line-height: 1.7;
+    color: #555; /* Slightly lighter than pure black for body text */
+    margin-bottom: 15px;
+}
+
+
+/* 1. Prepare the main container */
+#hero.hero-image {
+    position: relative; /* This is crucial for positioning the pseudo-element inside it */
+    isolation: isolate; /* A newer CSS property that creates a new stacking context. It's a modern way to prevent z-index issues. */
+    
+    /* Keep your existing styles for layout and text alignment */
+    height: 80vh;
+    width: 100%;
+    color: white;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* 2. Create and style the pseudo-element for the background */
+#hero.hero-image::before {
+    content: ''; /* Pseudo-elements must have a 'content' property */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* Apply the background image here */
+    /*background-image: url('/images/dorrbear.jpg');
+    background-size: cover;
+    background-position: center;
+    
+    /* Apply the opacity ONLY to this pseudo-element */
+    opacity: 1;
+
+    /* Place the pseudo-element behind the content */
+    z-index: -1;
+}
+
+/* Your .hero-content style remains the same */
+.hero-content {
+    
+    padding: 20px 40px;
+    font-family: eb-garamond; /* Custom font for the hero content */
+    font-size: 1.3em;
+    color: rgb(20, 20, 20);
+    font-weight: 800; /* Make the text bold */
+    
+}
+
+a {
+    color: #0264b9; /* A standard blue for links */
+    
+}
+
+a:hover {
+    text-decoration: underline; /* Add underline on hover for links */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.75em; /* Some default spacing below headings */
+}
+
+
+    /* In your style.css */
+#hero h2 { /* Or a more specific class if you prefer */
+    font-size: 5em; /* Make sure the font is large enough for the effect */
+    font-weight: extra-bold; /* Bolder fonts work better */
+    /* You can use any font family */
+
+    /* 1. Define your gradient as a background image */
+    /* background-image: url(/images/bark.png); /* Example: Pink to Green gradient */
+    /* Or a more complex one: */
+    /*background-image: linear-gradient(black, white); 
+
+    /* 2. Clip the background to the text */
+    -webkit-background-clip: text; /* For Safari and older Chrome/Edge */
+    background-clip: text;
+
+    /* 3. Make the text color transparent so the background shows through */
+    /*color: transparent;
+    /* For older WebKit browsers, you might also need: */
+    /* -webkit-text-fill-color: transparent; */
+
+    /* Optional: Add a fallback text color for browsers that don't support background-clip: text */
+    /* This will be overridden if background-clip: text is supported */
+    /* color: #333;  (Uncomment this if you want a solid fallback) */
+}
+
+section {
+    padding: 60px 20px; /* Add some padding top/bottom and left/right to each section */
+    text-align: center; /* Center text within sections by default */
+}
+
+/* In style.css */
+
+#examples {
+    scroll-margin-top: 114px;
+    padding: 60px 0;
+    background-color: #FFFFFF; /* Or a very light gray to alternate from previous section */
+}
+
+#examples h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-family: cambria;
+    font-size: 2.1em;
+}
+
+#examples .section-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px auto; /* Center it and add space below */
+    color: #555;
+}
+
+.sign-grid {
+    display: grid;
+    /* Create responsive columns:
+       - On small screens, 1 column (1fr means take up all available space)
+       - On screens 600px and wider, try for 2 columns
+       - On screens 900px and wider, try for 3 columns
+       The `minmax(280px, 1fr)` means columns will be at least 280px wide,
+       and will share space equally (1fr) if there's room.
+    */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* Space between cards */
+}
+
+.sign-card {
+    background-color: #fff; /* White background for cards if section bg is different */
+    border: 1px solid #E0E0E0; /* Subtle border */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Ensures image corners also look rounded if image is first child */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Very subtle shadow */
+    display: flex; /* Using flexbox for card's internal layout */
+    flex-direction: column; /* Stack image above content */
+}
+
+.sign-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for images for consistency, adjust as needed */
+    object-fit: cover; /* Ensures image covers the area, may crop */
+    /* border-bottom: 1px solid #E0E0E0; */ /* Optional separator */
+}
+
+.sign-card-content {
+    padding: 20px;
+    flex-grow: 1; /* Allows content area to grow if cards have varying text length but same image height */
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-card-content h3 {
+    font-size: 1.25em; /* Or your preferred heading size for cards */
+    color: #333;
+    margin-bottom: 10px;
+    /* Consider a font that complements your header/logo for these titles */
+}
+
+.sign-card-content .sign-description {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Pushes price to the bottom if card heights vary due to text */
+}
+
+.sign-card-content .sign-price {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #0077CC; /* Or your brand's accent color */
+    margin-top: auto; /* Pushes price to the bottom if content above doesn't fill space */
+    text-align: right; /* Example: align price to the right */
+}
+
+/*.container { /* A utility class we might use later for centering content */
+/*    max-width: 1100px;
+    margin: auto;
+    overflow: hidden; /* Clears floats */
+/*    padding: 0 20px;
+   
+}*/
+
+.gallery-item {
+    position: relative; /* Needed for absolute positioning of the overlay */
+    margin-top: 2em;
+    
+    
+    overflow: hidden; /* Ensures the overlay doesn't spill out */
+    border-radius: 8px; /* Rounded corners for the gallery items */
+}
+
+.legend {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    color: white;
+    padding: 10px;
+    padding-top: 4em;
+    text-align: center;
+    font-size: 1.2em; /* Slightly larger text for the legend */
+}
+
+/* In style.css */
+
+#about {
+    scroll-margin-top: 114px;
+    padding: 60px 0;
+    background-color: #FFFFFF; /* Or your preferred background for this section */
+}
+
+#about h2 { /* The "About Us" heading */
+    text-align: center;
+    margin-bottom: 40px; /* Space below the main section heading */
+    font-size: 2.5em; /* Or your standard section heading size */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; /* Custom font for headings */
+}
+
+/* Reusing .two-column-layout for structure (already styled) */
+/* .two-column-layout {
+    display: flex;
+    align-items: flex-start; /* Or 'center' */
+/* gap: 30px; 
+} */
+
+/* Specific styling for the image column in the About section if needed */
+.about-us-images {
+    /* If you want the two images stacked with space: */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space between the two images */
+    gap: 20px; /* Space between the two images */
+}
+
+.about-us-images img {
+    width: 100%; /* Make images fill their column (which is part of the 2-column layout) */
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Specific styling for the bio text column */
+.about-us-bio {
+    /* Your existing .text-column styles for flex sizing will apply */
+}
+
+.about-us-bio p {
+    font-size: 1.1em; /* Slightly larger for readability if it's a main text block */
+    line-height: 1.8;
+    color: #444; /* Slightly softer than pure black */
+    margin-bottom: 20px;
+}
+
+.about-us-bio p:last-child {
+    margin-bottom: 0; /* No extra margin after the last paragraph */
+}
+
+#contact {
+    scroll-margin-top: 114px;
+    padding: 60px; /* Padding for the contact section */
+    background-color: #FFFFFF; /* Or your preferred background for this section */
+    text-align: center; /* Center the content in the contact section */
+    font-size: 1.1em; /* Slightly larger font size for readability */
+}
+
+#contact h2 {
+    font-size: 2.5em; /* Or your standard section heading size */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; /* Custom font for headings */
+    margin-bottom: 40px; /* Space below the main section heading */
+}
+
+.contact-image {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 0 auto; /* Center the image */
+    margin-top: 5em;
+    width: 50%;
+}
+
+footer {
+    background-color: #333; /* Dark background for footer */
+    color: #fff; /* Light text color */
+    padding: 20px 0; /* Padding for top and bottom */
+    text-align: center; /* Centered text in footer */
+}
+
+/* =================================== */
+/* Responsive Styles                   */
+/* =================================== */
+
+/* For Tablets & Smaller Desktops (screens 992px wide or less) */
+@media screen and (max-width: 992px) {
+    /* Styles inside here will ONLY apply when the viewport is 992px or narrower. */
+    
+     /* Optional: Make the logo slightly smaller to give more room to the nav items */
+    header .logo h1 {
+        font-size: 2.5em; /* e.g., slightly smaller than the desktop 2.8em or 3em */
+    }
+
+    /* Reduce the font size of the navigation links */
+    header nav ul li a {
+        font-size: 0.9em; 
+    }
+    
+    /* If you have the green "Contact Us" button, adjust its padding and font size too */
+    header nav ul li a.nav-cta-button {
+        padding: 8px 16px; /* A little less padding */
+        font-size: 0.9em;
+    }
+
+    /* You could also adjust the spacing between items in your top-banner if needed */
+    #top-banner li {
+        margin: 0 0 0 10px; /* e.g., slightly less margin */
+    }
+  
+    .image-column img {
+        margin-top: 20px
+    }
+    .about-us-images {
+        flex-direction: column; /* Stack images vertically on smaller screens */
+        gap: 130px; /* Space between the two images */
+    }
+
+    
+
+}
+
+@media screen and (max-width: 800px) {
+    
+    /* 1. Hide the regular navigation list */
+   /* In your style.css, inside your @media screen and (max-width: 899px) block */
+
+/* --- The Mobile Navigation Menu Overlay --- */
+    header nav .main-nav {
+        /* Set up its layout permanently */
+        display: flex; /* It's ALWAYS a flex container now */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        /* Set up its position permanently */
+        position: absolute;
+        top: 104px; /* Adjust to your header height */
+        left: 40;
+        right: 0;
+        width: 75%;
+        max-width: 300px; /* Limit the width of the menu */
+        height: calc(46vh - 75px);
+        background-color: rgba(26, 26, 26, 0.98);
+        backdrop-filter: blur(5px);
+
+        /* --- THIS IS THE NEW HIDING MECHANISM --- */
+        opacity: 0; /* Start fully transparent */
+        visibility: hidden; /* Hide it from screen readers and prevent clicks when hidden */
+        transform: translateY(-20px); /* Start slightly pushed up for a slide-down effect */
+        pointer-events: none; /* Disable mouse events when hidden */
+
+        /* --- THIS IS THE TRANSITION --- */
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    }
+
+    /* --- The styles for when the menu is OPEN --- */
+    header nav .main-nav.is-active {
+        /* We just reverse the hiding properties */
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0); /* Move it to its final position */
+        pointer-events: auto; /* Re-enable mouse events */
+    }
+        /* Inside your media query */
+    header nav .main-nav li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #444; /* Optional: adds a subtle separator line */
+    }
+    header nav .main-nav li:first-child {
+        border-top: 1px solid #444; /* Optional: adds a line at the very top */
+    }
+
+    header nav .main-nav li a {
+        display: block; /* Make the entire area of the <li> clickable */
+        width: 100%;
+        padding: 20px; /* Generous padding for a large tap target */
+        font-size: 1.5rem; /* Larger font size */
+        color: white;
+    }
+
+    header nav .main-nav li a.nav-cta-button {
+        /* Style your mobile CTA button differently if you wish */
+        background-color: 4CAF50;
+        border: 2px solid #4CAF50; /* Green outline instead of solid fill */
+        margin: 15px 15%; /* Margin to make it stand out */
+        width: 70%; /* Not full width */
+        border-radius: 5px;
+        font-size: 1.1em;
+    }
+    /* 3. Show the hamburger button */
+    .hamburger-menu {
+        display: block;
+        margin-left: auto; /* This pushes the button to the far right of its container */
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        padding: 10px;
+        
+    }
+
+    /* 4. This class will be toggled by JavaScript to show the menu */
+    header nav .main-nav.is-active {
+        display: flex;
+        justify-content: flex-start; /* Show the menu by changing display from 'none' to 'flex' */
+    }
+    
+    /* 5. Animate the hamburger into an "X" when active */
+    .hamburger-menu.is-active .bar:nth-child(2) {
+        opacity: 0; /* Middle bar fades out */
+    }
+    .hamburger-menu.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg); /* Top bar rotates */
+    }
+    .hamburger-menu.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg); /* Bottom bar rotates */
+    }
+
+    .divider-logo-image {
+        width: 75px; /* Adjust based on your logo size */
+        height: auto; /* Maintains aspect ratio */
+        margin: 0 20px; /* Space between the lines and the logo */
+    }
+
+    .section-divider {
+    display: flex;
+    align-items: center; /* Vertically aligns the lines and the logo text */
+    text-align: center;
+    margin: 5vh 0; /* Adjust vertical spacing around the divider */
+    /* You might want to put this inside a .container if you want it constrained,
+       or leave it full-width with lines extending to edges of .site-content-wrapper */
+    }
+
+    #vision {
+        padding: 20px 20px; /* Less padding on smaller screens */
+    }
+
+    /* In your style.css, inside your media query for this breakpoint */
+
+    /* This rule will affect ALL two-column layouts, including "Our Process" and "About Us" */
+    .two-column-layout {
+        flex-direction: column; /* This is the magic line that stacks the columns */
+        align-items: center;    /* Re-center the items now that they are in a column */
+    }
+
+    .two-column-layout.layout-reversed {
+    /* Simply re-stating flex-direction: column is enough.
+       Or you could use column-reverse if you wanted the text to appear first. */
+    flex-direction: column; 
+}
+
+
+    /* Make sure the columns take up the full width when stacked */
+    .image-column,
+    .text-column {
+        width: 100%;
+        max-width: 550px; /* Optional: Constrain the text width for readability */
+    }
+
+    .about-us-images {
+        flex-direction: column; /* Stack images vertically on smaller screens */
+        gap: 40px; /* Space between the two images */
+    }
+
+     .contact-image {
+        width: 80%; /* Make the contact image full width */
+        height: auto; /* Maintain aspect ratio */
+        margin-top: 20px; /* Add some space above */
+    }
+
+    /* Add space between the image block and the text block when they are stacked */
+
+
+}
+
+/* =================================== */
+/* Final Polish for Very Narrow Screens */
+/* =================================== */
+
+@media screen and (max-width: 400px) {
+    /*
+       At this size, the layout should already be a single column.
+       The goal is to tweak font sizes, padding, and margins to prevent
+       any text or elements from feeling squished or overflowing.
+    */
+
+    /* Example: Further reduce heading sizes */
+    h2, .hero-content h2 {
+        font-size: 1.8em; /* Or whatever looks good */
+    }
+
+    #top-banner li {
+    font-size: .8em;
+    }
+
+    #image-showcase {
+        padding: 0px; /* Remove padding to maximize space */
+    }
+
+    .divider-logo-image {
+        width: 50px; /* Adjust based on your logo size */
+        height: auto; /* Maintains aspect ratio */
+        margin: 0 20px; /* Space between the lines and the logo */
+    }
+
+    .vision-text {
+        font-size: 1.2em; /* Smaller font size for very narrow screens */
+        padding: 0 10px; /* Less padding on the sides */
+    }
+    #process {
+        padding: 20px 10px; /* Less padding on the section */
+    }
+
+    .section-divider {
+        margin: 20px 0; /* Less space around the divider */
+    }
+
+    #another-feature {
+        padding: 0px 10px; /* Less padding on the section */
+    }
+
+    #examples {
+     /*   padding: 0px 10px; /* Less padding on the section */
+    }
+
+    .sign-card-content h3 {
+        font-size: 1.1em;
+    }
+
+    /* Example: Reduce padding on containers to maximize space */
+    .container, .container-narrow {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Example: Reduce padding on your hero content block */
+    .hero-content {
+        padding: 0px;
+    }
+
+    /* Check your CTA buttons to make sure they aren't too wide */
+    .cta-button, .nav-cta-button {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .contact-image {
+        width: 100%; /* Make the contact image full width */
+        height: auto; /* Maintain aspect ratio */
+        margin-top: 20px; /* Add some space above */
+    }
+
+}
