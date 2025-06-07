@@ -725,41 +725,35 @@ footer {
 
 /* --- The Mobile Navigation Menu Overlay --- */
     header nav .main-nav {
-        /* Set up its layout permanently */
-        display: flex; /* It's ALWAYS a flex container now */
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        
-        /* Set up its position permanently */
-        position: absolute;
-        top: 104px; /* Adjust to your header height */
-        left: 40;
-        right: 0;
-        width: 75%;
-        max-width: 300px; /* Limit the width of the menu */
-        height: calc(46vh - 75px);
-        background-color: rgba(26, 26, 26, 0.98);
-        backdrop-filter: blur(5px);
-
-        /* --- THIS IS THE NEW HIDING MECHANISM --- */
-        opacity: 0; /* Start fully transparent */
-        visibility: hidden; /* Hide it from screen readers and prevent clicks when hidden */
-        transform: translateY(-20px); /* Start slightly pushed up for a slide-down effect */
-        pointer-events: none; /* Disable mouse events when hidden */
-
-        /* --- THIS IS THE TRANSITION --- */
-        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed; 
+    top: 110px; 
+    margin: 0;
+    padding: 20px, 0;
+    left: 0;
+    width: 100%;
+    height: auto; 
+    bottom: 0; 
+    background-color: rgba(26, 26, 26, 0.98);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    z-index: 100; 
+}
 
     /* --- The styles for when the menu is OPEN --- */
-    header nav .main-nav.is-active {
-        /* We just reverse the hiding properties */
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0); /* Move it to its final position */
-        pointer-events: auto; /* Re-enable mouse events */
-    }
+   header nav .main-nav.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+ }
         /* Inside your media query */
     header nav .main-nav li {
         width: 100%;
