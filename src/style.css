@@ -662,6 +662,45 @@ section {
     margin-bottom: 40px; /* Space below the main section heading */
 }
 
+/* In your style.css */
+
+.contact-form {
+    max-width: 600px; /* Constrain form width */
+    margin: 40px auto 0 auto; /* Add space above and center it */
+    text-align: left; /* Align labels and inputs to the left within the form */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block; /* Put label on its own line */
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #444;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: inherit; /* Use the body's font */
+}
+
+/* Style your submit button (you might reuse your .cta-button class) */
+.contact-form button[type="submit"] {
+    display: block;
+    width: 100%;
+    border: none;
+    height: 4vh;
+    font-size: 2vh;
+    /* Your existing .cta-button styles for color, padding, etc., will apply if it has that class */
+}
+
 .contact-image {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
