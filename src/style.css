@@ -701,6 +701,21 @@ section {
     /* Your existing .cta-button styles for color, padding, etc., will apply if it has that class */
 }
 
+/* In your style.css */
+.form-success {
+    border: 1px solid #4CAF50; /* Green border */
+    background-color: #f0fff0; /* Light green background */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: #2E7D32; /* Darker green text */
+}
+
+.hidden {
+    display: none;
+}
+
 .contact-image {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);

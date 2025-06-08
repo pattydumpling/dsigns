@@ -309,7 +309,7 @@
                         <p><strong>Address:</strong>2869 Golden Torch Dr. Arnold, CA 95223</p>
                         <p><strong>Hours:</strong> Monday - Friday, 9 AM - 5 PM</p>
                     </div>
-                 <form name="contact" class="contact-form" data-netlify="true">
+                 <form name="contact" id="contact-form" class="contact-form" data-netlify="true" action="/thank-you/">
                         <div class="form-group">
                             <label for="name">Your Name:</label>
                             <input type="text" id="name" name="name" required>
@@ -324,6 +324,10 @@
                         </div>
                         <button type="submit" class="cta-button">Send Message</button>
                     </form>
+                    <div id="form-success-message" class="form-success hidden">
+                        <h3>Thank You!</h3>
+                        <p>Your message has been sent. We'll be in touch soon.</p>
+                    </div>
                 <img src="/images/dorrcity.png" alt="Dorrington sign" class="contact-image">
                 </div>
         </section>
