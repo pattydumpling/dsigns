@@ -731,6 +731,34 @@ footer {
     text-align: center; /* Centered text in footer */
 }
 
+.footer-social-links {
+    margin-top: 15px; /* Space above the icon(s) */
+}
+
+.footer-social-links a {
+    /* --- Add these properties to create the button shape and border --- */
+    display: inline-flex;     /* Makes it behave like a block, but sit on a line */
+    justify-content: center; /* Horizontally centers the icon inside */
+    align-items: center;     /* Vertically centers the icon inside */
+    width: 44px;               /* Defines the width of the circle */
+    height: 44px;              /* Defines the height of the circle */
+    border: 2px solid #FFFFFF; /* Your border! White, 2px thick */
+    border-radius: 50%;        /* This makes the square into a perfect circle */
+    
+    /* --- Your existing styles --- */
+    color: #FFFFFF;            /* White icon color */
+    font-size: 1.3rem;         /* Size of the icon itself */
+    text-decoration: none;
+    margin: 0 10px;            /* Space between icons */
+    transition: all 0.3s ease; /* Animate all properties for a smooth hover */
+}
+
+.footer-social-links a:hover {
+    background-color: #FFFFFF; /* Fill the circle with white on hover */
+    color: #1A1A1A;             /* Change icon color to your dark header color on hover */
+    transform: translateY(-2px);   /* Slight lift effect */
+}
+
 /* =================================== */
 /* Responsive Styles                   */
 /* =================================== */
